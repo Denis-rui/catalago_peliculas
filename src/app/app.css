@@ -1,0 +1,14 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+mat-toolbar h1{
+    font-size: 28px;
+    color: wheat; 
+}
+
+.menu{
+    background-color: darkblue !important;
+}
+
+
