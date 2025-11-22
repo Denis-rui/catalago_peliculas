@@ -3,12 +3,32 @@
 }
 
 mat-toolbar h1{
+    padding-left: 10px;
     font-size: 28px;
-    color: wheat; 
+    color: wheat;
 }
 
 .menu{
     background-color: darkblue !important;
 }
 
+#logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+    
+}
+
+.btnMenu:hover{
+    color: yellow ;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+footer{
+    background-color: blue;
+    color: white;
+    
+
+}
 
