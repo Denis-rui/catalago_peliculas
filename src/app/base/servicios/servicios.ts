@@ -8,10 +8,13 @@ export class Servicios {
   private contenido: Contenido[] = [];
 
   constructor(){
+    //asigna los datos tipo texto a contenidoExtraido 
     const contenidoExtraido = localStorage.getItem('contenidos');
-    if(contenidoExtraido !== null){
-      this.contenido = JSON.parse(contenidoExtraido);
 
+    // valida que el contenido extraido no este vacio
+    if(contenidoExtraido !== null){
+      //convierte el texto o string a el tipo de contenido y lo asigna
+      this.contenido = JSON.parse(contenidoExtraido);
     }
   }
 
@@ -24,16 +27,21 @@ export class Servicios {
     nuevoContenido.id = this.contenido.length + 1;
     //agrega el nuevo contenido al arreglo
     this.contenido.push(nuevoContenido);
+    //guardamos en el localstorage
+    localStorage.setItem('contenidos', JSON.stringify(this.contenido));
   }
 
   editarContenido(contenidoEditado: Contenido): void{
     let idEncontrado = -1;
+
+    // buscamos que exista el id en el arreglo
     for (let i = 0; i<this.contenido.length; i++){
       if(this.contenido[i].id === contenidoEditado.id){
           idEncontrado = i;
           break;
       }
     }
+    // validamos que exista el id ya se por error del código o usuario
     if(idEncontrado !== -1){
       this.contenido[idEncontrado] = contenidoEditado;
       alert('Contenido editado correctamente');
@@ -42,6 +50,33 @@ export class Servicios {
     }
   }
 
+//BÚSQUEDAS
 
+  buscarPorId(id: number): Contenido | undefined {
+    for(let i=0; i<this.contenido.length; i++){
+      if(this.contenido[i].id === id){
+        return this.contenido[i];
+      }
+    }
+    return undefined;
+  }
+
+  buscarPorTitulo(titulo: string): Contenido[] {
+    // tolowerCase convierte todo a minúsculas
+    titulo = titulo.toLowerCase();
+    //filter recorre todo el arreglo y devuelve los que cumplan la condición
+    //c es un alias al cual se le asigna cada elemento del arreglo
+    // includes compara 
+    return this.contenido.filter(c => c.titulo.toLowerCase().includes(titulo));
+  }
+
+  buscarPorGenero(genero: string): Contenido[]{
+    // pienso en colocar un menu de generos en lalista
+    return this.contenido.filter(c => c.genero === genero);
+  }
+
+  buscarPorTipo(tipo: string): Contenido[]{
+    return this.contenido.filter(c => c.tipo === tipo);
+  }
   
 }
