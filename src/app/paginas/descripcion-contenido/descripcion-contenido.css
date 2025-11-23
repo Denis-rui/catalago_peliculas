@@ -1,0 +1,64 @@
+.contenedor-detalle {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.fila {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.col-izquierda {
+  flex: 1;
+  text-align: center;
+}
+
+.imagen-detalle {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.col-derecha {
+  flex: 2;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 32px;
+}
+
+.duracion {
+  margin: 10px 0 20px 0;
+  font-size: 18px;
+}
+
+.texto {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.video-detalle {
+  width: 100%;       /* Ocupa todo el ancho */
+  max-width: 900px;  /* Tamaño máximo */
+  height: auto;      /* Mantiene proporciones */
+  display: block;
+  margin: 0 auto;    /* Centrado */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+#descripcion{
+    text-align: justify;
+}
+
+:host {
+  display: block;
+  background: #0f0f0f; /* gris carbón */
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+}

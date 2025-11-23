@@ -1,1 +1,106 @@
-<p>editar-reactivo works!</p>
+<mat-card class="card-form">
+  <h2>Editar información de Películas</h2>
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Buscar por título</mat-label>
+    <input type="text" matInput [formControl]="busqueda" [matAutocomplete]="auto" autocomplete="off">
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="seleccionar($event.option.value)">
+        <mat-option *ngFor="let item of sugerencias" [value]="item">
+        {{ item.titulo }}
+        </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <!-- Autocomplete de Material -->
+
+  <h2>Editar contenido</h2>
+
+  <form [formGroup]="form" class="form-grid">
+
+    <div class="col">
+      <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="id" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Título: </mat-label>
+        <input matInput formControlName="titulo">
+        <mat-error *ngIf="form.get('titulo')?.hasError('required')">
+            El título es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo: </mat-label>
+        <input matInput formControlName="tipo" readonly>
+        <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+            El tipo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Año: </mat-label>
+        <input matInput formControlName="anio" type="number">
+        <mat-error *ngIf="form.get('anio')?.hasError('required')">
+            El año es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('anio')?.hasError('pattern')">
+            Debes ingresar el año correctamente.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+    <mat-label>Género</mat-label>
+    <mat-select formControlName="genero">
+        <mat-option value="">Seleccione…</mat-option>
+        <mat-option value="Dibujos Animados">Dibujos Animados</mat-option>
+        <mat-option value="Comedia">Comedia</mat-option>
+        <mat-option value="Ciencia Ficción">Ciencia Ficción</mat-option>
+        <mat-option value="Acción">Acción</mat-option>
+        <mat-option value="Romance">Romance</mat-option>
+        <mat-option value="Terror">Terror</mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="form.get('genero')?.hasError('required')">
+        Agregar el género de la película es oligatorio.
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+    <mat-label>Imagen: </mat-label>
+    <input matInput formControlName="imagen">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+    <mat-label>Video: </mat-label>
+    <input matInput formControlName="video">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+    <mat-label>Duración: </mat-label>
+    <input matInput formControlName="duracion">
+    <mat-error *ngIf="form.get('duracion')?.hasError('required')">
+        La duración de la película es obligatorio.
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="descripcion">
+    <mat-label>Descripción: </mat-label>
+    <textarea matInput formControlName="descripcion" ></textarea>
+    <mat-error *ngIf="form.get('descripcion')?.hasError('required')">
+        La descripción es obligatorio.
+    </mat-error>
+    <mat-error *ngIf="form.get('descripcion')?.hasError('minLength')">
+        La descripción debe tener al menos 10 carácteres.
+    </mat-error>
+</mat-form-field>
+
+</form>
+
+  <button mat-raised-button color="primary" class="btn-guardar" (click)="guardar()">
+    Guardar cambios
+  </button>
+</mat-card>

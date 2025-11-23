@@ -1,0 +1,60 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  align-items: center;
+}
+
+.card-form {
+  width: 100%;
+  max-width: 750px;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.boton-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.estado-form {
+  width: 100%;
+  max-width: 750px;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.estado-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}

@@ -1,1 +1,30 @@
-<p>inicio works!</p>
+<div class="carrusel-container">
+
+  <div class="carrusel">
+    <div class="slide" *ngFor="let pelicula of peliculas">
+
+      <div class="item-card">
+        <img [src]="pelicula.imagen" [alt]="pelicula.titulo">
+
+        <div class="item-info">
+          <h3>{{ pelicula.titulo }}</h3>
+          <p>{{ pelicula.anio }}</p>
+
+          <!-- Envuelve el botón en un div contenedor -->
+          
+          </div>
+          <div style="position: relative; z-index: 100; pointer-events: auto;">
+            <button class="btn-ver-mas" (click)="verMas(pelicula.id)">
+              Ver Más
+            </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <button class="carrusel-btn prev" (click)="prevSlide()">&#10094;</button>
+  <button class="carrusel-btn next" (click)="nextSlide()">&#10095;</button>
+
+</div>

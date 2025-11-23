@@ -1,0 +1,26 @@
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 16px; /* Espacio entre columnas y filas */
+}
+
+.col {
+  display: contents; /* Permite que los mat-form-field dentro participen en el grid */
+}
+
+/* Hacer que el campo descripción ocupe las 2 columnas */
+mat-form-field.descripcion {
+  grid-column: 1 / -1; /* Ocupa ambas columnas */
+}
+/* Botón guardar separado */
+.btn-guardar {
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* Ajuste para inputs más anchos si quieres */
+mat-form-field {
+  width: 100%;
+}
+
+ 

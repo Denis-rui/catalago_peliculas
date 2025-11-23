@@ -7,5 +7,5 @@ export interface Contenido{
     genero: string;
     imagen: string;
     video: string;
-
+    duracion: string;
 }

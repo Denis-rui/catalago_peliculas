@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Contenido } from '../modelo/modelo';
+import { Datos } from '../datos/data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Servicios {
-  private contenido: Contenido[] = [];
+  private contenido: Contenido[] = [...Datos];
 
   constructor(){
-    //asigna los datos tipo texto a contenidoExtraido 
+if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+
     const contenidoExtraido = localStorage.getItem('contenidos');
 
-    // valida que el contenido extraido no este vacio
-    if(contenidoExtraido !== null){
-      //convierte el texto o string a el tipo de contenido y lo asigna
+    if (contenidoExtraido !== null) {
       this.contenido = JSON.parse(contenidoExtraido);
     }
+
+  } else {
+    // No estamos en navegador (build o SSR)
+    this.contenido = [];
+  }
   }
 
   getContenido(): Contenido[]{
@@ -27,8 +32,10 @@ export class Servicios {
     nuevoContenido.id = this.contenido.length + 1;
     //agrega el nuevo contenido al arreglo
     this.contenido.push(nuevoContenido);
-    //guardamos en el localstorage
+    //guardamos en el localStorage
     localStorage.setItem('contenidos', JSON.stringify(this.contenido));
+
+    alert('Película Agregada Correctamente')
   }
 
   editarContenido(contenidoEditado: Contenido): void{
@@ -48,6 +55,7 @@ export class Servicios {
     }else{
       alert('Contenido no encontrado');
     }
+
   }
 
 //BÚSQUEDAS
@@ -71,12 +79,9 @@ export class Servicios {
   }
 
   buscarPorGenero(genero: string): Contenido[]{
-    // pienso en colocar un menu de generos en lalista
+    // pienso en colocar un menu de géneros en la lista
     return this.contenido.filter(c => c.genero === genero);
   }
 
-  buscarPorTipo(tipo: string): Contenido[]{
-    return this.contenido.filter(c => c.tipo === tipo);
-  }
   
 }

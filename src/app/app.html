@@ -2,12 +2,12 @@
 <header>
 <mat-toolbar class="menu" color="primary">
   <img id="logo" src="assets/imagenes/logo.png" alt="logo">
-  <h1> Cinematográfico 2.0 </h1>
+  <h1 id="titulo"> Cinematográfico 2.0 </h1>
 
   <span class="spacer"></span>
 
   <button class="btnMenu"  mat-button routerLink="/inicio" >Inicio</button>
-  <button class="btnMenu"  mat-button routerLink="/lista">Películas y Series</button>
+  <button class="btnMenu"  mat-button routerLink="/lista">Películas</button>
   <button class="btnMenu"  mat-button routerLink="/agregar">Agregar</button>
   <button class="btnMenu"  mat-button routerLink="/editar">Editar</button>
   <button class="btnMenu"  mat-button routerLink="/equipo">Equipo</button>
@@ -18,7 +18,10 @@
 <router-outlet></router-outlet> 
 
 <footer>
-  <h3>Contáctenos</h3>
+  <a id="irArriba" href="#titulo">Ir Arriba</a>
+
+  <h4>Proyecto Académico Desarrollado en Angular</h4>
+  <p>© 2025 - Todos los derechos reservados</p>
 
 
 </footer>

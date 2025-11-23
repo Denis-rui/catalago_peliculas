@@ -1,1 +1,39 @@
-<p>lista works!</p>
+<h2>Listado de Películas</h2>
+
+<!-- Filtros -->
+<div class="filtros">
+  <mat-form-field appearance="outline">
+    <mat-label>Buscar por título</mat-label>
+    <input matInput [(ngModel)]="filtroTitulo" (input)="aplicarFiltros()">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Género</mat-label>
+    <mat-select [(ngModel)]="filtroGenero" (selectionChange)="aplicarFiltros()">
+      <mat-option value="">Todos</mat-option>
+      <mat-option value="Acción">Acción</mat-option>
+      <mat-option value="Comedia">Comedia</mat-option>
+      <mat-option value="Romance">Romance</mat-option>
+      <mat-option value="Terror">Terror</mat-option>
+      <mat-option value="Dibujos Animados">Dibujos Animados</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- Tarjetas -->
+<div class="contenedor">
+  <mat-card class="card" *ngFor="let c of filtrados">
+    
+    <div class="card-grid">
+      <img class="card-imagen" [src]="c.imagen" [alt]="c.titulo">
+      <div class="card-info">
+        <h3>{{ c.titulo }}</h3>
+
+        <button mat-raised-button color="primary" (click)="verDetalle(c.id)">
+          Ver Detalle
+        </button>
+      </div>
+    </div>
+
+  </mat-card>
+</div>

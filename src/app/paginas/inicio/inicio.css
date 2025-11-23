@@ -1,0 +1,84 @@
+
+.carrusel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.carrusel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.slide {
+  flex: 0 0 calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.item-card {
+  width: 100%;
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  color: white;
+}
+
+.item-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.item-info {
+  padding: 10px;
+  position: relative;
+  height: 100px;
+  z-index: 20;
+  /* Asegurar que los eventos funcionen */
+  pointer-events: auto;
+}
+
+.btn-ver-mas {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ff4081;
+  border: none;
+  padding: 7px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 50;
+  /* Asegurar que sea clickeable */
+  pointer-events: auto;
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100; /* Más alto que el contenido del carrusel */
+}
+
+.carrusel-btn.prev {
+  left: 10px;
+}
+
+.carrusel-btn.next {
+  right: 10px;
+}

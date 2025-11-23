@@ -1,1 +1,86 @@
-<p>agregar-tdriven works!</p>
+<div class="page-container">
+
+  <mat-card class="card-form">
+
+    <h2 class="titulo">Agregar Contenido</h2>
+
+    <form #f="ngForm" (ngSubmit)="agregar(f)" class="form-grid">
+
+      <!-- Tipo -->
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <input matInput name="tipo" ngModel="Película" readonly />
+      </mat-form-field>
+
+      <!-- Título -->
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput name="titulo" ngModel required />
+        <mat-error>El título es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <!-- Descripción -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput rows="3" name="descripcion" ngModel required></textarea>
+        <mat-error>La descripción es obligatoria.</mat-error>
+      </mat-form-field>
+
+      <!-- Año -->
+      <mat-form-field appearance="outline">
+        <mat-label>Año</mat-label>
+        <input
+          matInput
+          type="number"
+          name="anio"
+          ngModel
+          required
+          min="1900"
+          max="2030"
+        />
+        <mat-error>Año inválido (1900–2030).</mat-error>
+      </mat-form-field>
+
+      <!-- Género -->
+      <mat-form-field appearance="outline">
+        <mat-label>Género</mat-label>
+        <input matInput name="genero" ngModel required />
+        <mat-error>El género es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <!-- Imágen -->
+      <mat-form-field appearance="outline">
+        <mat-label>URL de Imagen</mat-label>
+        <input matInput name="imagen" [(ngModel)]="imagenPreview" />
+      </mat-form-field>
+
+      <!-- Video -->
+      <mat-form-field appearance="outline">
+        <mat-label>URL de Video</mat-label>
+        <input matInput name="video" ngModel />
+      </mat-form-field>
+
+      <!-- Duración -->
+      <mat-form-field appearance="outline">
+        <mat-label>Duración</mat-label>
+        <input matInput name="duracion" ngModel required />
+        <mat-error>La duración es obligatoria.</mat-error>
+      </mat-form-field>
+
+      <div class="boton-container">
+        <button mat-raised-button color="primary" type="submit">
+          Guardar
+        </button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+  <!-- Vista previa de la imagen -->
+  <mat-card class="estado-form" *ngIf="imagenPreview">
+    <h3>Vista previa de la película</h3>
+    <img [src]="imagenPreview" alt="Imagen de la película" class="preview-img" />
+  </mat-card>
+
+</div>

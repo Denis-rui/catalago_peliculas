@@ -28,7 +28,9 @@ mat-toolbar h1{
 footer{
     background-color: blue;
     color: white;
-    
-
 }
 
+#irArriba{
+    color: white;
+    text-decoration: none;
+}

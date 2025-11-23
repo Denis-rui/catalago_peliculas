@@ -1,0 +1,44 @@
+.filtros {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  padding-left: 15px; 
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card-info {
+  width: 100%;
+  text-align: center;
+}
+
+.filtros mat-form-field {
+  min-width: 200px; /* para que no se encojan demasiado */
+}
+
+h2 {
+  padding-left: 15px; /* espacio a la izquierda */
+}
