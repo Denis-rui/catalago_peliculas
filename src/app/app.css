@@ -1,3 +1,7 @@
+.router-outlet-container{
+    background-color:  #c3c1c1 !important;
+}
+
 .spacer{
     flex: 1 1 auto;
 }
@@ -33,4 +37,8 @@ footer{
 #irArriba{
     color: white;
     text-decoration: none;
+}
+
+.pie{
+    background-color: darkblue;
 }

@@ -62,5 +62,4 @@ export class Lista {
   verDetalle(id: number) {
     this.router.navigate(['/descripcion', id]);
   }
-
 }

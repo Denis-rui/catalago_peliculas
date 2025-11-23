@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from "@angular/material/select";
 
 @Component({
   selector: 'app-agregar-tdriven',
@@ -18,8 +19,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    MatSelectModule
+],
   templateUrl: './agregar-tdriven.html',
   styleUrls: ['./agregar-tdriven.css']
 })

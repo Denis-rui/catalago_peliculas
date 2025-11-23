@@ -44,7 +44,15 @@
       <!-- Género -->
       <mat-form-field appearance="outline">
         <mat-label>Género</mat-label>
-        <input matInput name="genero" ngModel required />
+       <mat-select name="genero" ngForm required>
+        <mat-option value=""disabled>Seleccione…</mat-option>
+        <mat-option value="Dibujos Animados">Dibujos Animados</mat-option>
+        <mat-option value="Comedia">Comedia</mat-option>
+        <mat-option value="Ciencia Ficción">Ciencia Ficción</mat-option>
+        <mat-option value="Acción">Acción</mat-option>
+        <mat-option value="Romance">Romance</mat-option>
+        <mat-option value="Terror">Terror</mat-option>
+      </mat-select>     
         <mat-error>El género es obligatorio.</mat-error>
       </mat-form-field>
 

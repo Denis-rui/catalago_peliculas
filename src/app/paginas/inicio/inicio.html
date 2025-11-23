@@ -1,3 +1,7 @@
+<!-- =============================== -->
+<!--           CARRUSEL              -->
+<!-- =============================== -->
+
 <div class="carrusel-container">
 
   <div class="carrusel">
@@ -9,14 +13,12 @@
         <div class="item-info">
           <h3>{{ pelicula.titulo }}</h3>
           <p>{{ pelicula.anio }}</p>
+        </div>
 
-          <!-- Envuelve el botón en un div contenedor -->
-          
-          </div>
-          <div style="position: relative; z-index: 100; pointer-events: auto;">
-            <button class="btn-ver-mas" (click)="verMas(pelicula.id)">
-              Ver Más
-            </button>
+        <div style="position: relative; z-index: 100;">
+          <button class="btn-ver-mas" (click)="verMas(pelicula.id)">
+            Ver Más
+          </button>
         </div>
 
       </div>
@@ -26,5 +28,41 @@
 
   <button class="carrusel-btn prev" (click)="prevSlide()">&#10094;</button>
   <button class="carrusel-btn next" (click)="nextSlide()">&#10095;</button>
+
+</div>
+
+
+<!-- =============================== -->
+<!--      SECCIÓN POR GÉNERO         -->
+<!-- =============================== -->
+<div class="generos-section">
+
+  <h2 class="titulo-seccion">Películas por género</h2>
+
+  <div *ngFor="let grupo of peliculasPorGenero" class="genero-bloque">
+
+    <h3 class="titulo-genero">{{ grupo.genero }}</h3>
+
+    <div class="genero-grid">
+
+      <div class="genero-card" *ngFor="let pelicula of grupo.lista" (click)="verMas(pelicula.id)">
+
+        <div class="img-wrap">
+          <img [src]="pelicula.imagen" [alt]="pelicula.titulo">
+
+          <!-- etiqueta pequeña sobre la imagen mostrando el género -->
+          <span class="badge-genero">{{ pelicula.genero }}</span>
+        </div>
+
+        <div class="genero-info">
+          <h4 class="titulo-card">{{ pelicula.titulo }}</h4>
+          <p class="anio-card">{{ pelicula.anio }}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
