@@ -1,6 +1,4 @@
-<!-- =============================== -->
 <!--           CARRUSEL              -->
-<!-- =============================== -->
 
 <div class="carrusel-container">
 
@@ -12,13 +10,13 @@
 
         <div class="item-info">
           <h3>{{ pelicula.titulo }}</h3>
-          <p>{{ pelicula.anio }}</p>
-        </div>
-
-        <div style="position: relative; z-index: 100;">
-          <button class="btn-ver-mas" (click)="verMas(pelicula.id)">
-            Ver Más
-          </button>
+          
+          <div class="info-footer">
+            <p class="anio">{{ pelicula.anio }}</p>
+            <button class="btn-ver-mas" (click)="verMas(pelicula.id)">
+              Ver Más
+            </button>
+          </div>
         </div>
 
       </div>
@@ -26,13 +24,10 @@
     </div>
   </div>
     
-
   <button class="carrusel-btn prev" (click)="prevSlide()">&#10094;</button>
   <button class="carrusel-btn next" (click)="nextSlide()">&#10095;</button>
 
 </div>
-
-
 <!-- =============================== -->
 <!--      SECCIÓN POR GÉNERO         -->
 <!-- =============================== -->
