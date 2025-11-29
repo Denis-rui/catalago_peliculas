@@ -1,0 +1,75 @@
+.Integrante{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.informacion{
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    border:1px solid black  ;
+}
+
+.foto{
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.titulo {
+    text-align: center !important;
+    margin: auto !important;
+}
+
+.descripcion{
+    text-align: justify;
+}
+a{
+    margin: 5px;
+}
+
+
+.informacionExtra{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.colum {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 90%;
+    margin-bottom: 20px;
+    
+}
+
+.cuadro{
+    padding: 20px;
+    border-radius: 12px;
+    background: whitesmoke;
+    border:1px solid black  ;
+
+}
+
+.cuadro h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.cuadro p{
+    text-align: justify;
+}
+
+h1{
+    margin: 0;
+    padding: 15px;
+}
+
+

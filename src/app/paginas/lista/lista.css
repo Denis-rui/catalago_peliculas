@@ -41,4 +41,6 @@
 
 h2 {
   padding-left: 15px; /* espacio a la izquierda */
+  margin: 0px;
+  padding: 15px;
 }

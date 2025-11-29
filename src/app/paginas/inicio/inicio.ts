@@ -30,8 +30,9 @@ ngOnInit(): void {
 
   // --- CARRUSEL ---
   // Solo mostrar 10 películas en el carrusel
-  this.peliculas = todas.slice(0, 10);
-  this.totalSlides = this.peliculas.length;
+const base = this.mezclarArray(todas).slice(0, 10);
+this.peliculas = [...base, base[0]]; // añadimos el primer slide al final
+this.totalSlides = this.peliculas.length; // ahora es 11
 
   // --- SECCIÓN POR GÉNERO ---
   // Usar TODAS para formar los géneros
@@ -62,10 +63,28 @@ ngOnInit(): void {
   }
 
   // --- CARRUSEL ---
-  nextSlide(): void {
-    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+nextSlide(): void {
+this.currentSlide++;
+
+  const mitad = this.totalSlides / 2;
+
+  // --- Cuando llegamos al final del primer bloque ---
+  if (this.currentSlide === mitad) {
+    const carrusel = document.querySelector('.carrusel') as HTMLElement;
+
+    // Quitar transición
+    carrusel.style.transition = 'none';
+    this.currentSlide = 0;
+    carrusel.style.transform = `translateX(0%)`;
+
+    // Reaplicar transición
+    setTimeout(() => {
+      carrusel.style.transition = 'transform 0.5s ease-in-out';
+    }, 20);
+  } else {
     this.updateCarrusel();
   }
+}
 
   prevSlide(): void {
     this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
@@ -87,4 +106,17 @@ ngOnInit(): void {
       carrusel.style.transform = `translateX(-${this.currentSlide * (100 / 3)}%)`;
     }
   }
+
+  mezclarArray(array: Contenido[]): Contenido[] {
+  const copia = [...array];
+  for (let i = copia.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = copia[i];   // Guardar valor de i
+    copia[i] = copia[j];     // Cambiar
+    copia[j] = temp;
+  }
+  return copia;
 }
+
+}
+

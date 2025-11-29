@@ -1,1 +1,51 @@
-<p>equipo works!</p>
+<h1>Información del Proyecto</h1>
+<br>
+
+<h2 class="titulo">Integrantes</h2>
+
+<div class="Integrante" >
+
+
+<div class="informacion" *ngFor=" let integrante of integrantes">
+    <img [src]="integrante.foto" alt="foto" class="foto">
+    <h4>{{integrante.nombre}}</h4>
+    <p class="descripcion">{{integrante.descripcion}}</p>
+    <p class="edad"><b>Edad: </b>{{integrante.edad}}</p>
+    <a [href]="'mailto:' + integrante.correo">
+        <img src="assets/imagenes/iconos/gmail.jpg" alt="Gmail" width="32" >
+    </a>
+
+    <a [href]="integrante.whatsapp" target="_blank">
+        <img src="assets/imagenes/iconos/whatsapp.jpg" alt="whatsapp" width="32" >
+    </a>
+
+</div>
+</div >
+
+
+<div class="informacionExtra">
+    <div class="colum">
+        <div id="proposito" class="cuadro">
+            <h3>¿Cuál es el propósito?</h3>
+            <p>El propósito principal del catálogo es ofrecer un espacio centralizado, intuitivo y bien organizado donde los amantes del cine puedan explorar películas de forma sencilla. Funciona como una brújula personal dentro del vasto universo audiovisual, permitiendo descubrir títulos según géneros, intereses o preferencias individuales.</p>
+        </div>
+
+        <div   class="cuadro">
+            <h3>¿Por qué elegimos las películas?</h3>
+            <p>Centrarnos en películas se basa en su consumo universal y en la fuerte conexión emocional que generan. Este tipo de contenido no solo entretiene: inspira, une y permite vivir experiencias compartidas</p>
+        </div>
+
+        <div class="cuadro">
+            <h3>¿Qué problema resuelve nuestra aplicación?</h3>
+            <p>Trabajar con películas elimina barreras económicas y de acceso, ya que cualquier persona puede disfrutar y explorar este contenido de manera sencilla desde la app</p>
+        </div>
+        <div class="cuadro">
+            <h3>¿Qué aportan nuestra aplicación?</h3>
+            <p>La aplicación enriquece la experiencia del usuario mediante el entretenimiento y la conexión emocional en sus tiempos libres</p>
+        </div>
+    </div>
+</div>
+
+
+
+

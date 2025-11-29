@@ -41,4 +41,15 @@ footer{
 
 .pie{
     background-color: darkblue;
+    text-align: center;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    
+}
+
+.columna{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
 }

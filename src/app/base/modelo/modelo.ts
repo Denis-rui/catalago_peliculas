@@ -9,3 +9,15 @@ export interface Contenido{
     video: string;
     duracion: string;
 }
+
+
+ export interface equipo{
+    nombre: string;
+    foto?: string;
+    descripcion?: string;
+    edad: number;
+    correo?: string;
+    whatsapp?: string;
+    
+
+  }
