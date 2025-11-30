@@ -13,9 +13,13 @@ if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
 
     const contenidoExtraido = localStorage.getItem('contenidos');
 
-    if (contenidoExtraido !== null) {
-      this.contenido = JSON.parse(contenidoExtraido);
-    }
+if (contenidoExtraido !== null) {
+  const guardado = JSON.parse(contenidoExtraido);
+  // Mezclar: lo nuevo de Datos + lo guardado
+  this.contenido = [...Datos, ...guardado];
+} else {
+  this.contenido = [...Datos];
+}
 
   } else {
     // No estamos en navegador (build o SSR)

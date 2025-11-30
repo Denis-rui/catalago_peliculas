@@ -207,3 +207,9 @@ h2 {
 .titulo-genero{
   padding-left: 15px;
 }
+
+hr{
+  border: none;
+  border-top: 1px solid #333;
+  margin: 20px 0;
+}

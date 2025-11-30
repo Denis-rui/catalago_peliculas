@@ -41,6 +41,22 @@
         id: 10,  tipo: 'Película', titulo: 'Harry Potter y la piedra filosofal', descripcion: 'El día en que cumple once años, Harry Potter se entera de que es hijo de dos destacados hechiceros, de los que ha heredado poderes mágicos. En la escuela Hogwarts de Magia y Hechicería, donde se educa con otros niños que también tienen poderes especiales, aprenderá todo lo necesario para ser mago.', anio: 2001, duracion: '2h 32min',genero: 'Ciencia Ficción', imagen: 'assets/imagenes/CIENCIA_FICCION/harry-poter.avif', video: 'assets/videos/CIENCIA FICCION/Harry_Potter.mp4'
     },
 
+    {
+        id:38, tipo: 'Película', titulo: 'El señor de los anillos: Los anillos de poder', descripcion: 'Comenzando en un tiempo relativamente pacífico, acompañamos a un grupo de personajes mientras enfrentan el resurgimiento del mal en la Tierra Media. Desde las profundidades más oscuras de las Montañas Nubladas hasta el majestuoso bosque de Lindon, la imponente isla de Númenor y los rincones más lejanos del mapa, estos reinos y personajes darán lugar a legados que perdurarán en el tiempo.', anio: 2022, duracion: '2h 09min', genero: 'Ciencia Ficción', imagen: 'assets/imagenes/CIENCIA_FICCION/elSeñordelosAnillos.avif', video: 'assets/videos/CIENCIA FICCION/elSeñordelosAnillos.mp4'
+    },
+    
+    {
+        id:39, tipo: 'Película', titulo: 'Constantine', descripcion: 'Cuando John Constantine se une a una policía para resolver el misterioso suicidio de su hermana gemela, su investigación los lleva a través del mundo de demonios y ángeles que existe debajo del paisaje de Los Ángeles contemporáneo.', anio: 2005, duracion: '2h 01min', genero: 'Ciencia Ficción', imagen: 'assets/imagenes/CIENCIA_FICCION/constatine.avif', video: 'assets/videos/CIENCIA FICCION/constantine.mp4'
+
+    },
+
+    {
+        id:40, tipo: 'Película', titulo: 'TRON: Ares', descripcion: 'Un programa altamente sofisticado llamado Ares es enviado del mundo digital al mundo real en una misión peligrosa, marcando el primer encuentro de la humanidad con seres de IA.', anio: 2025, duracion: '2h 00min', genero: 'Ciencia Ficción', imagen: 'assets/imagenes/CIENCIA_FICCION/tron.avif', video: 'assets/videos/CIENCIA FICCION/tron.mp4'
+
+    },
+
+
+
     // COMEDIA
     {
         id: 11,  tipo: 'Película', titulo: 'Chiquito Pero Peligroso', descripcion: 'En esta divertida comedia, las grandes sorpresas llegan en paquete pequeño. Darryl Edwards (Shawn Wayans) tiene tantas ganas de ser padre que confunde a Calvin Sims (Marlon Wayans), un ladrón prófugo de la justicia, que es bajito y con cara de bebé, con un niño abandonado. Darryl y su mujer acogen al “bebé” en su casa mientras Percy P (Tracy Morgan), el socio del ladrón, intenta ayudarle a recuperar un diamante robado. Él y su esposa recogen al bebé llevándolo a su hogar mientras que el socio del ladrón Percy P. (Tracy Morgan) trata de ayudarlo a recuperar un diamante robado...', anio:2006, duracion: '1h 38min', genero: 'Comedia', imagen: 'assets/imagenes/COMEDIA/chiquito_pero_peligroso.avif', video: 'assets/videos/COMEDIA/CHIQUITO PERO PELIGROSO.mp4'
