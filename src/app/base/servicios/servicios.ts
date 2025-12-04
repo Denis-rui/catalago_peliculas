@@ -6,29 +6,37 @@ import { Datos } from '../datos/data';
   providedIn: 'root',
 })
 export class Servicios {
-  private contenido: Contenido[] = [...Datos];
+ private contenido: Contenido[] = [];
 
-  constructor(){
-if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-
+constructor() {
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
     const contenidoExtraido = localStorage.getItem('contenidos');
-
-if (contenidoExtraido !== null) {
-  const guardado = JSON.parse(contenidoExtraido);
-  // Mezclar: lo nuevo de Datos + lo guardado
-  this.contenido = [...Datos, ...guardado];
-} else {
-  this.contenido = [...Datos];
-}
+    if (contenidoExtraido !== null) {
+      const guardado = JSON.parse(contenidoExtraido);
+      // Mezclar Datos + lo guardado
+      const mezclado = [...Datos, ...guardado];
+      // Quitar duplicados por ID
+      const sinDuplicados = mezclado.filter( (item, index, self) =>
+          index === self.findIndex(x => x.id === item.id)
+      );
+      
+      this.contenido = sinDuplicados;
+      // Guardar limpio en localStorage
+      localStorage.setItem('contenidos', JSON.stringify(this.contenido));
+    } else {
+      // Primera vez: solo Datos
+      this.contenido = [...Datos];
+      localStorage.setItem('contenidos', JSON.stringify(this.contenido));
+    }
 
   } else {
-    // No estamos en navegador (build o SSR)
     this.contenido = [];
   }
-  }
+}
+
 
   getContenido(): Contenido[]{
-    return this.contenido;
+      return this.contenido;
   }
 
   agregarContenido(nuevoContenido: Contenido):  void{
@@ -38,13 +46,11 @@ if (contenidoExtraido !== null) {
     this.contenido.push(nuevoContenido);
     //guardamos en el localStorage
     localStorage.setItem('contenidos', JSON.stringify(this.contenido));
-
     alert('Película Agregada Correctamente')
   }
 
   editarContenido(contenidoEditado: Contenido): void{
     let idEncontrado = -1;
-
     // buscamos que exista el id en el arreglo
     for (let i = 0; i<this.contenido.length; i++){
       if(this.contenido[i].id === contenidoEditado.id){
@@ -59,11 +65,8 @@ if (contenidoExtraido !== null) {
     }else{
       alert('Contenido no encontrado');
     }
-
   }
-
 //BÚSQUEDAS
-
   buscarPorId(id: number): Contenido | undefined {
     for(let i=0; i<this.contenido.length; i++){
       if(this.contenido[i].id === id){
@@ -72,7 +75,6 @@ if (contenidoExtraido !== null) {
     }
     return undefined;
   }
-
   buscarPorTitulo(titulo: string): Contenido[] {
     // tolowerCase convierte todo a minúsculas
     titulo = titulo.toLowerCase();
@@ -81,11 +83,8 @@ if (contenidoExtraido !== null) {
     // includes compara 
     return this.contenido.filter(c => c.titulo.toLowerCase().includes(titulo));
   }
-
   buscarPorGenero(genero: string): Contenido[]{
     // pienso en colocar un menu de géneros en la lista
     return this.contenido.filter(c => c.genero === genero);
   }
-
-  
 }
